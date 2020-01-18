@@ -39,10 +39,21 @@ namespace ConsoleAppQueue
                 return result;
             }
 
-            public void Display()
+        public void Display()
+        {
+            Node<T> node = head;
+            while (node != null)
             {
+                Console.Write("{0}", node.Value);
+                if (node.Next == null)
+                {
+                    return;
+                }
 
+                Console.Write("->");
+                node = node.Next;
             }
+        }
 
             public void Enqueue(T value)
             {
