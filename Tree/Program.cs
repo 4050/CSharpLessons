@@ -11,7 +11,7 @@ namespace Tree
             tree.Add(2);
             tree.Add(7);
             tree.Add(3);
-            tree.PreOrder_Rec(tree.root);
+            tree.PreOrder(tree.root);
 
         }
     }

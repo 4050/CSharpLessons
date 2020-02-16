@@ -6,8 +6,7 @@ namespace Tree
 {
     class Tree
     {
-        public Node root;
-
+        public Node root
         public void Add(int value)
         {
             Node newNode = new Node();
