@@ -6,12 +6,17 @@ namespace Tree
     {
         static void Main(string[] args)
         {
+            Node newNode = new Node(15);
+            Node newNode1 = new Node(5);
+            Node newNode2 = new Node(19);
+            Node newNode3 = new Node(1);
             Tree tree = new Tree();
-            tree.Add(1);
-            tree.Add(2);
-            tree.Add(7);
-            tree.Add(3);
+            tree.Add(newNode);
+            tree.Add(newNode1);
+            tree.Add(newNode2);
+            tree.Add(newNode3);
             tree.PreOrder(tree.root);
+            tree.BfsTraversal(tree.root);
 
         }
     }

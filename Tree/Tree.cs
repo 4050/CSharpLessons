@@ -6,11 +6,11 @@ namespace Tree
 {
     class Tree
     {
-        public Node root
-        public void Add(int value)
+        public Node root;
+        public void Add(Node node)
         {
-            Node newNode = new Node();
-            newNode.Value = value;
+            Node newNode = new Node(node.Value);
+            newNode.Value = node.Value;
 
             Node parent = null;
             Node child = root;
@@ -18,11 +18,11 @@ namespace Tree
             while (child != null)
             {
                 parent = child;
-                if (value < child.Value)
+                if (node.Value < child.Value)
                 {
                     child = child.Left;
                 }
-                else if (value > child.Value)
+                else if (node.Value > child.Value)
                 {
                     child = child.Right;
                 }
@@ -32,11 +32,11 @@ namespace Tree
             {
                 root = newNode;
             }
-            else if (value < parent.Value )
+            else if (node.Value < parent.Value )
             {
                 parent.Left = newNode;
             }
-            else if (value > parent.Value)
+            else if (node.Value > parent.Value)
             {
                 parent.Right = newNode;
             }
@@ -50,6 +50,28 @@ namespace Tree
                 PreOrder(root.Left);
                 PreOrder(root.Right);
             }
+        }
+
+        public void BfsTraversal(Node node)
+        {
+            Queue<Node> q = new Queue<Node>();
+            q.Enqueue(node);
+            while (q.Count > 0)
+            {
+                node = q.Dequeue();
+                Console.Write(node.Value + " ");
+
+                if (node.Left != null) 
+                {
+                    q.Enqueue(node.Left);
+                }
+
+                if (node.Right != null)
+                {
+                    q.Enqueue(node.Right);
+                }
+            }
+
         }
     }
 }
